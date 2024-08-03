@@ -11,7 +11,7 @@ defineProps({
         <div class="notes-footer__wrapper">
             <div></div>
             <div class="notes-footer__count">
-                {{ notes }} {{ notes === 0 ? 'Notes' : 'Note' }}
+                {{ notes }} {{ notes === 1 ? 'Note' : 'Notes' }}
             </div>
             <div class="notes-footer__create">
                 <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
