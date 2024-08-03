@@ -44,4 +44,18 @@ table {
 
 html {
   scroll-behavior: smooth;
+  background-color: #F2F2F7;
+}
+
+
+@font-face {
+  font-family: 'SF Pro', sans-serif;
+  src: url('@/fonts/SF-Pro-Text-Regular.otf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro', sans-serif;
+  src: url('@/fonts/SF-Pro-Text-Bold.otf');
+  font-weight: 700;
 }
