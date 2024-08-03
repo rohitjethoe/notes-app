@@ -48,6 +48,7 @@ const query = ref("");
         border: none;
         outline: none;
         height: 100%;
+        letter-spacing: -0.027rem;
     }
 }
 </style>

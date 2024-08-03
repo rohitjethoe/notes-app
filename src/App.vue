@@ -9,7 +9,12 @@ import List from '@/components/List.vue';
 const activeNote = ref(0);
 const notes = ref([
   {
-    title: "Hello, World!",
+    title: "Hello, World! 🌎",
+    post: "This is a Vue 3 tutorial",
+    date: new Date().getTime()
+  },
+  {
+    title: "Hello, World! 🌎",
     post: "This is a Vue 3 tutorial",
     date: new Date().getTime()
   }
@@ -19,8 +24,8 @@ const notes = ref([
 <template>
   <Search />
   <main>
-    <List />
-    <File :title="notes[activeNote].title" :post="notes[activeNote].post"/>
+    <List :notes />
+    <!-- <File :title="notes[activeNote].title" :post="notes[activeNote].post"/> -->
   </main>
   <Create :notes="notes.length" />
 </template>
