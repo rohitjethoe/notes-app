@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 
 defineProps({
     notes: Array
@@ -21,7 +21,7 @@ const isSameDay = (timestamp) => {
 <template>
     <section class="notes-list">
         <div class="notes-list__wrapper">
-            <div v-for="(note, i) in notes" class="notes-list__note" :class="i == notes.length - 1 ? 'notes-list__note--last' : ''">
+            <div @click="$emit('open-note', note)" v-for="(note, i) in notes" class="notes-list__note" :class="i == notes.length - 1 ? 'notes-list__note--last' : ''">
                 <div class="notes-list__crate">
                     <div class="notes-list__title">
                         {{ note.title }}
