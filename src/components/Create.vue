@@ -39,6 +39,12 @@ const emit = defineEmits(['create-note']);
         }
     }
 
+    &__create {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
     &__count {
         font-family: 'SF Pro', sans-serif;
         font-size: 0.688rem;

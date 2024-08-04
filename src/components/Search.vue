@@ -80,6 +80,9 @@ const query = ref("");
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
 </style>
