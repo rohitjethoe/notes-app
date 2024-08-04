@@ -1,13 +1,15 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 
 import Search from '@/components/Search.vue';
 import Create from '@/components/Create.vue';
 import File from '@/components/File.vue';
 import List from '@/components/List.vue';
 
+let query = ref("");
 let activeNote = ref(null);
-const notes = ref([
+
+let notes = ref([
   {
     id: 0,
     title: "Hello, World! 🌎",
@@ -22,17 +24,29 @@ const notes = ref([
   }
 ]);
 
-const noteHandler = (note) => {
+const view = (note) => {
   activeNote.value = note;
+}
+
+const create = () => {
+  const newNote = {
+    id: notes.value.length,
+    title: "",
+    post: "",
+    date: new Date().getTime()
+  }
+
+  notes.value.push(newNote);
+  activeNote.value = newNote.id;
 }
 </script>
 
 <template>
-  <Search @close-note="noteHandler" :listView="activeNote === null" />
+  <Search @update:modelValue="$event => query = $event" @close-note="view" :modelValue="query" :listView="activeNote === null" />
   <main>
-    <List v-if="activeNote === null" @open-note="noteHandler" :notes />
+    <List v-if="activeNote === null" @open-note="view" :notes :modelValue="query"/>
     <File v-if="activeNote !== null" :title="activeNote.title" :post="activeNote.post"/>
   </main>
-  <Create :notes="notes.length" />
+  <Create @create-note="create()" :notes="notes.length" />
 </template>
 

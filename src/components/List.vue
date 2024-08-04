@@ -2,7 +2,8 @@
 import { defineProps, defineEmits } from 'vue';
 
 defineProps({
-    notes: Array
+    notes: Array,
+    modelValue: String
 });
 
 const weekDays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -22,7 +23,7 @@ const isSameDay = (timestamp) => {
     <section class="notes-list">
         <div class="notes-list__wrapper">
             <div @click="$emit('open-note', note)" v-for="(note, i) in notes" class="notes-list__note" :class="i == notes.length - 1 ? 'notes-list__note--last' : ''">
-                <div class="notes-list__crate">
+                <div class="notes-list__crate" v-if="note.title.includes(modelValue)">
                     <div class="notes-list__title">
                         {{ note.title }}
                     </div>
