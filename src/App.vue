@@ -45,8 +45,6 @@ const create = () => {
 }
 
 const edit = (note) => {
-  console.log(activeNote);
-  console.log(note);
   notes.value[activeNote.value.id].title = note.newTitle;
   notes.value[activeNote.value.id].post = note.newPost;
 }

@@ -22,7 +22,7 @@
     </a>
     <h3 align="center">notes-app</h3>
     <p align="center">
-        Notes App in Vue 3
+        Notes App in Vue 3 for learning purposes only...
         <br/>
         <a href="https://github.com/rohitjethoe/notes-app"><strong>Explore the docs »</a>
         <br />
