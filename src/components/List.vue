@@ -70,8 +70,9 @@ const isSameDay = (timestamp) => {
         border-top-left-radius: 0.625rem;
         border-top-right-radius: 0.625rem;
         &:hover {
-            background-color: rgba(228, 175, 10, 0.4);
-            transition: 250ms background-color ease-out;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.2);
+            transition: 150ms background-color ease-out;
         }
         &--last {
             border-top-left-radius: 0;

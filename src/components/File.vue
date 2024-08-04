@@ -59,6 +59,7 @@ const editNote = () => {
             width: 100%;
             font-weight: 400;
             letter-spacing: -0.027rem;
+            resize: none;
         }
     }
 }
