@@ -28,7 +28,7 @@ const isSameDay = (timestamp) => {
                         {{ note.title }}
                     </div>
                     <div class="notes-list__description">
-                        <span v-if="isSameDay(note.date)">{{ new Date(note.date).getHours() < 12 ?  `0${new Date(note.date).getHours()}` : new Date(note.date).getHours() }}:{{ new Date(note.date).getMinutes() }} {{ note.post }}</span>
+                        <span v-if="isSameDay(note.date)">{{ new Date(note.date).getHours() < 10 ?  `0${new Date(note.date).getHours()}` : new Date(note.date).getHours() }}:{{ new Date(note.date).getMinutes() < 10 ?  `0${new Date(note.date).getMinutes()}` : new Date(note.date).getMinutes() }} {{ note.post }}</span>
                         <span v-else>{{ weekDays[new Date(note.date).getDay()] }} {{ note.post }}</span>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ const isSameDay = (timestamp) => {
         border-top-right-radius: 0.625rem;
         &:hover {
             cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: rgba(0, 0, 0, 0.1);
             transition: 150ms background-color ease-out;
         }
         &--last {
