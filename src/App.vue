@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref } from 'vue';
 
 import Search from '@/components/Search.vue';
 import Create from '@/components/Create.vue';
@@ -18,11 +18,15 @@ let notes = ref([
   },
   {
     id: 1,
-    title: "Hello, World! 🌎",
-    post: "This is a Vue 3 tutorial",
+    title: "Hello, Vue!",
+    post: "Welcome to a Vue 3 tutorial",
     date: new Date().getTime()
   }
 ]);
+
+const search = (note) => {
+  query.value = note;
+}
 
 const view = (note) => {
   activeNote.value = note;
@@ -37,15 +41,22 @@ const create = () => {
   }
 
   notes.value.push(newNote);
-  activeNote.value = newNote.id;
+  activeNote.value = newNote;
+}
+
+const edit = (note) => {
+  console.log(activeNote);
+  console.log(note);
+  notes.value[activeNote.value.id].title = note.newTitle;
+  notes.value[activeNote.value.id].post = note.newPost;
 }
 </script>
 
 <template>
-  <Search @update:modelValue="$event => query = $event" @close-note="view" :modelValue="query" :listView="activeNote === null" />
+  <Search @update:modelValue="search($event)" @close-note="view" :modelValue="query" :listView="activeNote === null" />
   <main>
     <List v-if="activeNote === null" @open-note="view" :notes :modelValue="query"/>
-    <File v-if="activeNote !== null" :title="activeNote.title" :post="activeNote.post"/>
+    <File v-if="activeNote !== null" @edit-note="edit($event)" :title="activeNote.title" :post="activeNote.post"/>
   </main>
   <Create @create-note="create()" :notes="notes.length" />
 </template>
