@@ -30,6 +30,7 @@ const search = (note) => {
 
 const view = (note) => {
   activeNote.value = note;
+  query.value = "";
 }
 
 const create = () => {
